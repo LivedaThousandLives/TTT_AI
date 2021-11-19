@@ -1,0 +1,585 @@
+IF #resetTTTai THEN
+    #turn_count := 0;
+    #button1 := 0;
+    #button2 := 0;
+    #button3 := 0;
+    #button4 := 0;
+    #button5 := 0;
+    #button6 := 0;
+    #button7 := 0;
+    #button8 := 0;
+    #button9 := 0;
+    #pos1 := 0;
+    #pos2 := 0;
+    #pos3 := 0;
+    #pos4 := 0;
+    #pos5 := 0;
+    #pos6 := 0;
+    #pos7 := 0;
+    #pos8 := 0;
+    #pos9 := 0;
+    #player1 := 0;
+    #player2 := 0;
+    #win := 0;
+    #pos1Score := 0;
+    #pos3Score := 0;
+    #pos7Score := 0;
+    #pos9Score := 0;
+END_IF;
+
+// INT 1 = X = player
+// INT 2 = O = computer
+
+IF #button1 AND #player1 AND #pos1 = 0 THEN
+    #pos1 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button1 AND #player2 AND #pos1 = 0 THEN
+    #pos1 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button2 AND #player1 AND #pos2 = 0 THEN
+    #pos2 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button2 AND #player2 AND #pos2 = 0 THEN
+    #pos2 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button3 AND #player1 AND #pos3 = 0 THEN
+    #pos3 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button3 AND #player2 AND #pos3 = 0 THEN
+    #pos3 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button4 AND #player1 AND #pos4 = 0 THEN
+    #pos4 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button4 AND #player2 AND #pos4 = 0 THEN
+    #pos4 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button5 AND #player1 AND #pos5 = 0 THEN
+    #pos5 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button5 AND #player2 AND #pos5 = 0 THEN
+    #pos5 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button6 AND #player1 AND #pos6 = 0 THEN
+    #pos6 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button6 AND #player2 AND #pos6 = 0 THEN
+    #pos6 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button7 AND #player1 AND #pos7 = 0 THEN
+    #pos7 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button7 AND #player2 AND #pos7 = 0 THEN
+    #pos7 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button8 AND #player1 AND #pos8 = 0 THEN
+    #pos8 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button8 AND #player2 AND #pos8 = 0 THEN
+    #pos8 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button9 AND #player1 AND #pos9 = 0 THEN
+    #pos9 := 1;
+    #turn_count := #turn_count + 1;
+END_IF;
+IF #button9 AND #player2 AND #pos9 = 0 THEN
+    #pos9 := 2;
+    #turn_count := #turn_count + 1;
+END_IF;
+
+REGION win conditions
+    IF #pos1 = 1 AND #pos2 = 1 AND #pos3 = 1 THEN
+        #win := 3;
+    END_IF;
+    IF #pos1 = 2 AND #pos2 = 2 AND #pos3 = 2 THEN
+        #win := 3;
+    END_IF;
+    IF #pos4 = 1 AND #pos5 = 1 AND #pos6 = 1 THEN
+        #win := 2;
+    END_IF;
+    IF #pos4 = 2 AND #pos5 = 2 AND #pos6 = 2 THEN
+        #win := 2;
+    END_IF;
+    IF #pos7 = 1 AND #pos8 = 1 AND #pos9 = 1 THEN
+        #win := 1;
+    END_IF;
+    IF #pos7 = 2 AND #pos8 = 2 AND #pos9 = 2 THEN
+        #win := 1;
+    END_IF;
+    IF #pos1 = 1 AND #pos4 = 1 AND #pos7 = 1 THEN
+        #win := 4;
+    END_IF;
+    IF #pos1 = 2 AND #pos4 = 2 AND #pos7 = 2 THEN
+        #win := 4;
+    END_IF;
+    IF #pos2 = 1 AND #pos5 = 1 AND #pos8 = 1 THEN
+        #win := 5;
+    END_IF;
+    IF #pos2 = 2 AND #pos5 = 2 AND #pos8 = 2 THEN
+        #win := 5;
+    END_IF;
+    IF #pos3 = 1 AND #pos6 = 1 AND #pos9 = 1 THEN
+        #win := 6;
+    END_IF;
+    IF #pos3 = 2 AND #pos6 = 2 AND #pos9 = 2 THEN
+        #win := 6;
+    END_IF;
+    IF #pos3 = 1 AND #pos5 = 1 AND #pos7 = 1 THEN
+        #win := 7;
+    END_IF;
+    IF #pos3 = 2 AND #pos5 = 2 AND #pos7 = 2 THEN
+        #win := 7;
+    END_IF;
+    IF #pos1 = 1 AND #pos5 = 1 AND #pos9 = 1 THEN
+        #win := 8;
+    END_IF;
+    IF #pos1 = 2 AND #pos5 = 2 AND #pos9 = 2 THEN
+        #win := 8;
+    END_IF;
+    IF #turn_count >= 9 AND #win = 0 THEN
+        #win := 9;
+    END_IF;
+END_REGION
+
+CASE #turn_count OF
+    0:
+        #player1 := TRUE;
+        #player2 := FALSE;
+    1:
+        #player1 := FALSE;
+        #player2 := TRUE;
+    2:
+        #player1 := TRUE;
+        #player2 := FALSE;
+    3:
+        #player1 := FALSE;
+        #player2 := TRUE;
+    4:
+        #player1 := TRUE;
+        #player2 := FALSE;
+    5:
+        #player1 := FALSE;
+        #player2 := TRUE;
+    6:
+        #player1 := TRUE;
+        #player2 := FALSE;
+    7:
+        #player1 := FALSE;
+        #player2 := TRUE;
+    8:
+        #player1 := TRUE;
+        #player2 := FALSE;
+    9:
+        #player1 := FALSE;
+        #player2 := TRUE;
+END_CASE;
+
+// Algorithm
+// Step 1: Check for win
+// Step 2: Check to block
+// Step 3: Check if corners are free (need to look into assigning corners with higher value depending on board set up)
+// Step 4: Check if center is free
+// Step 5: Check sides for highest value
+
+CASE #aiTurn OF
+    0:
+        IF #player2 = TRUE THEN
+            #aiTurn := #aiTurn + #aiTurn;
+        END_IF;
+    1:
+        IF #aiTurn = 1 THEN
+            #checkForWin := 1;
+        END_IF;
+        IF #checkForWin = 10 THEN
+            #aiTurn := #aiTurn + #aiTurn;
+        END_IF;
+    2:
+        IF #aiTurn = 2 THEN
+            #blockPlayer := 1;
+        END_IF;
+        IF #blockPlayer = 10 THEN
+            #aiTurn := #aiTurn + #aiTurn;
+        END_IF;
+    3:
+        IF #aiTurn = 3 THEN
+            #checkCorners := 1;
+        END_IF;
+        IF #checkCorners = 10 THEN
+            #aiTurn := #aiTurn + #aiTurn;
+        END_IF;
+    4:
+        IF #aiTurn = 4 THEN
+            #checkCenter := 1;
+        END_IF;
+        IF #checkCenter = 10 THEN
+            #aiTurn := #aiTurn + #aiTurn;
+        END_IF;
+    5:
+        IF #aiTurn = 5 THEN
+            #checkEdges := 1;
+        END_IF;
+        IF #checkEdges = 10 THEN
+            #aiTurn := 10;
+        END_IF;
+    10:
+        #checkForWin := 0;
+        #blockPlayer := 0;
+        #checkCorners := 0;
+        #checkCenter := 0;
+        #checkEdges := 0;
+        #aiTurn := 0;
+END_CASE;
+
+CASE #checkForWin OF
+    1: // Bottom row win conditions
+        IF #pos1 = 2 AND #pos2 = 2 AND #pos3 = 0 THEN
+            #pos3 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos2 = 2 AND #pos3 = 2 AND #pos1 = 0 THEN
+            #pos1 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos1 = 2 AND #pos3 = 2 AND #pos2 = 0 THEN
+            #pos2 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+    2: // Middle row win conditions
+        IF #pos4 = 2 AND #pos5 = 2 AND #pos6 = 0 THEN
+            #pos6 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos5 = 2 AND #pos6 = 2 AND #pos4 = 0 THEN
+            #pos4 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos4 = 2 AND #pos6 = 2 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+    3: // Top row win conditions
+        IF #pos7 = 2 AND #pos8 = 2 AND #pos9 = 0 THEN
+            #pos9 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos8 = 2 AND #pos9 = 2 AND #pos7 = 0 THEN
+            #pos7 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos7 = 2 AND #pos9 = 2 AND #pos8 = 0 THEN
+            #pos8 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+    4: // Left column win conditions
+        IF #pos1 = 2 AND #pos4 = 2 AND #pos7 = 0 THEN
+            #pos7 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos4 = 2 AND #pos7 = 2 AND #pos1 = 0 THEN
+            #pos1 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos1 = 2 AND #pos7 = 2 AND #pos4 = 0 THEN
+            #pos4 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+    5: // Middle column win conditions
+        IF #pos2 = 2 AND #pos5 = 2 AND #pos8 = 0 THEN
+            #pos8 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos5 = 2 AND #pos8 = 2 AND #pos2 = 0 THEN
+            #pos2 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos2 = 2 AND #pos8 = 2 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+    6: // Right column win conditions
+        IF #pos3 = 2 AND #pos6 = 2 AND #pos9 = 0 THEN
+            #pos9 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos6 = 2 AND #pos9 = 2 AND #pos3 = 0 THEN
+            #pos3 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos3 = 2 AND #pos9 = 2 AND #pos6 = 0 THEN
+            #pos6 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+     7: // Down right diagonal win conditions
+        IF #pos7 = 2 AND #pos5 = 2 AND #pos3 = 0 THEN
+            #pos3 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos5 = 2 AND #pos3 = 2 AND #pos7 = 0 THEN
+            #pos7 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos3 = 2 AND #pos7 = 2 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+    8: // Up right diagonal win conditions
+        IF #pos1 = 2 AND #pos5 = 2 AND #pos9 = 0 THEN
+            #pos9 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos5 = 2 AND #pos9 = 2 AND #pos1 = 0 THEN
+            #pos1 := 2;
+            #checkForWin := 10;
+        ELSIF
+            #pos1 = 2 AND #pos9 = 2 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #checkForWin := 10;
+        ELSE
+            #checkForWin := #checkForWin + 1;
+        END_IF;
+    10:
+        ;
+END_CASE;
+
+CASE #blockPlayer OF
+    1: // Bottom row blocks
+        IF #pos1 = 1 AND #pos2 = 1 AND #pos3 = 0 THEN
+            #pos3 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos2 = 1 AND #pos3 = 1 AND #pos1 = 0 THEN
+            #pos1 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos1 = 1 AND #pos3 = 1 AND #pos2 = 0 THEN
+            #pos2 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    2: // Middle row blocks
+        IF #pos4 = 1 AND #pos5 = 1 AND #pos6 = 0 THEN
+            #pos6 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos5 = 1 AND #pos6 = 1 AND #pos4 = 0 THEN
+            #pos4 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos4 = 1 AND #pos6 = 1 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    3: // Top row blocks
+        IF #pos7 = 1 AND #pos8 = 1 AND #pos9 = 0 THEN
+            #pos9 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos8 = 1 AND #pos9 = 1 AND #pos7 = 0 THEN
+            #pos7 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos7 = 1 AND #pos9 = 1 AND #pos8 = 0 THEN
+            #pos8 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    4: // Left column blocks
+        IF #pos1 = 1 AND #pos4 = 1 AND #pos7 = 0 THEN
+            #pos7 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos4 = 1 AND #pos7 = 1 AND #pos1 = 0 THEN
+            #pos1 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos1 = 1 AND #pos7 = 1 AND #pos4 = 0 THEN
+            #pos4 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    5: // Middle column blocks
+        IF #pos2 = 1 AND #pos5 = 1 AND #pos8 = 0 THEN
+            #pos8 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos5 = 1 AND #pos8 = 1 AND #pos2 = 0 THEN
+            #pos2 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos2 = 1 AND #pos8 = 1 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    6: // Right column blocks
+        IF #pos3 = 1 AND #pos6 = 1 AND #pos9 = 0 THEN
+            #pos9 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos6 = 1 AND #pos9 = 1 AND #pos3 = 0 THEN
+            #pos3 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos3 = 1 AND #pos9 = 1 AND #pos6 = 0 THEN
+            #pos6 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    7: // Down right diagonal blocks
+        IF #pos7 = 1 AND #pos5 = 1 AND #pos3 = 0 THEN
+            #pos3 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos5 = 1 AND #pos3 = 1 AND #pos7 = 0 THEN
+            #pos7 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos3 = 1 AND #pos7 = 1 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    8: // Up right diagonal blocks
+        IF #pos1 = 1 AND #pos5 = 1 AND #pos9 = 0 THEN
+            #pos9 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos5 = 1 AND #pos9 = 1 AND #pos1 = 0 THEN
+            #pos1 := 2;
+            #blockPlayer := 10;
+        ELSIF
+            #pos1 = 1 AND #pos9 = 1 AND #pos5 = 0 THEN
+            #pos5 := 2;
+            #blockPlayer := 10;
+        ELSE
+            #blockPlayer := #blockPlayer + 1;
+        END_IF;
+    10:
+        ;
+END_CASE;
+
+CASE #checkCorners OF
+    1:
+        IF #pos1 = 2 AND #pos9 = 2 AND #pos7 = 0 THEN
+            #pos7 := 2;
+            #checkCorners := 10;
+        ELSIF
+            #pos1 = 2 AND #pos9 = 2 AND #pos3 = 0 THEN
+            #pos3 := 2;
+            #checkCorners := 10;
+        ELSE
+            #checkCorners := #checkCorners + #checkCorners;
+        END_IF;
+    2:
+        IF #pos7 = 2 AND #pos3 = 2 AND #pos1 = 0 THEN
+            #pos1 := 2;
+            #checkCorners := 10;
+        ELSIF
+            #pos7 = 2 AND #pos3 = 2 AND #pos9 = 0 THEN
+            #pos9 := 2;
+            #checkCorners := 10;
+        ELSE
+            #checkCorners := #checkCorners + #checkCorners;
+        END_IF;
+    3:
+        IF #pos7 = 0 THEN
+            #pos7 := 2;
+            #checkCorners := 10;
+        ELSIF
+            #pos9 = 0 THEN
+            #pos9 := 2;
+            #checkCorners := 10;
+        ELSIF
+            #pos1 = 0 THEN
+            #pos1 := 2;
+            #checkCorners := 10;
+        ELSIF
+            #pos3 = 0 THEN
+            #pos3 := 2;
+            #checkCorners := 10;
+        ELSE
+            #checkCorners := 10;
+        END_IF;
+    10:
+        ;
+        
+END_CASE;
+
+CASE #checkCenter OF
+    0:
+        ;
+    1:
+        IF #pos5 = 0 THEN
+            #pos5 := 2;
+            #checkCenter := 10;
+        ELSE
+            #checkCenter := 10;
+        END_IF;
+    10:
+        ;
+END_CASE;
+            
+CASE #checkEdges OF
+    0:
+        ;
+    1:
+        IF #pos2 = 0 THEN
+            #pos2 := 2;
+            #checkEdges := 10;
+        ELSIF
+            #pos4 = 0 THEN
+            #pos4 := 2;
+            #checkEdges := 10;
+        ELSIF
+            #pos6 = 0 THEN
+            #pos6 := 2;
+            #checkEdges := 10;
+        ELSIF
+            #pos8 = 0 THEN
+            #pos8 := 2;
+            #checkEdges := 10;
+        ELSE
+            #checkEdges := 10;
+        END_IF;
+    10:
+        ;
+END_CASE;
+
